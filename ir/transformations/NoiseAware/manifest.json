@@ -1,0 +1,6 @@
+{
+  "bundle.symbolic_name" : "qcor_noiseaware_transformation",
+  "bundle.activator" : true,
+  "bundle.name" : "QCOR NoiseAware Transformation",
+  "bundle.description" : ""
+}

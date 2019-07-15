@@ -1,2 +1,3 @@
 add_subdirectory(digital)
 add_subdirectory(observable)
+add_subdirectory(transformations)
