@@ -20,8 +20,7 @@ TEST(NoiseAwareTransformationTester, checkSimple) {
     auto c = xacc::getService<xacc::Compiler>("xacc-py");
     auto f = c->compile("def foo(buffer):\n H(0)\n CNOT(0,1)\n")->getKernels()[0];
     auto provider = xacc::getService<IRProvider>("gate");
-    auto ir = provider->createIR();
-    //auto ir = std::make_shared<xacc::IR::GateIR>();
+    auto ir = provider->createIR();   
     ir->addKernel(f);
 
     NoiseAwareTransform nat;
@@ -31,7 +30,7 @@ TEST(NoiseAwareTransformationTester, checkSimple) {
     EXPECT_EQ(2, natF->nInstructions());
 
     EXPECT_EQ(std::vector<int>{1}, natF->getInstruction(0)->bits());
-    EXPECT_EQ((std::vector<int>{0,1}), natF->getInstruction(1)->bits());
+    EXPECT_EQ((std::vector<int>{1,2}), natF->getInstruction(1)->bits());
 
   }
 }
